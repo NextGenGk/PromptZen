@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        width: 350px;
+        padding: 20px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        margin: 0;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .header h1 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .section {
+        margin-bottom: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        border-radius: 8px;
+        backdrop-filter: blur(10px);
+      }
+
+      .section h3 {
+        margin: 0 0 10px 0;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      input[type="password"],
+      input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: 12px;
+        box-sizing: border-box;
+      }
+
+      input::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      button {
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+        margin-top: 8px;
+        transition: all 0.2s ease;
+      }
+
+      button:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      .status {
+        font-size: 11px;
+        margin-top: 5px;
+        opacity: 0.8;
+      }
+
+      .saved-prompts {
+        max-height: 200px;
+        overflow-y: auto;
+      }
+
+      .prompt-item {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 8px;
+        margin: 5px 0;
+        border-radius: 4px;
+        font-size: 11px;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+
+      .prompt-item:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .prompt-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 3px;
+      }
+
+      .prompt-meta {
+        opacity: 0.7;
+        font-size: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>🤖 AI Chat Assistant</h1>
+    </div>
+
+    <div class="section">
+      <h3>🔑 API Configuration</h3>
+      <input
+        type="password"
+        id="apiKey"
+        placeholder="Enter your Gemini API key"
+      />
+      <button id="saveApiKey">Save API Key</button>
+      <div id="apiStatus" class="status">No API key configured</div>
+    </div>
+
+    <div class="section">
+      <h3>💾 Saved Prompts</h3>
+      <div id="savedPrompts" class="saved-prompts">
+        <div class="status">No saved prompts yet</div>
+      </div>
+      <button id="clearPrompts">Clear All</button>
+    </div>
+
+    <div class="section">
+      <h3>ℹ️ How to Use</h3>
+      <div style="font-size: 11px; line-height: 1.4">
+        1. Visit ChatGPT, Claude, or other AI platforms<br />
+        2. Use the buttons above text boxes:<br />
+        • ✨ Perfect - Improve your prompt<br />
+        • 💾 Save - Save current prompt<br />
+        • 📝 Grammar - Fix grammar errors<br />
+        • 📄 Summary - Summarize current page
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
